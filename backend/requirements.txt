@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic-settings
+sqlmodel
+psycopg2-binary
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+google-cloud-vision
+reportlab
+supabase
