@@ -1,0 +1,92 @@
+{
+    "product": {
+        "product_name": "LSO7 LIPSTICK",
+        "mrp": null,
+        "net_quantity": "3.2 g",
+        "batch_number": "LSO7202406004",
+        "production_date": "2024/06",
+        "expiry_date": "2028/06",
+        "manufacturer": "Katson Intemational",
+        "manufacturer_address": "No 5, 182-186,3rd f. Rui Gali",
+        "country_of_origin": "PRC"
+    },
+    "product_category": "cosmetic",
+    "overall_status": "COMPLIANT",
+    "summary": {
+        "total_checks": 10,
+        "passed": 10,
+        "failed": 0
+    },
+    "rules": [
+        {
+            "rule_id": "COS-001",
+            "field": "product_name",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "product_name is present"
+        },
+        {
+            "rule_id": "COS-002",
+            "field": "mrp",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "MRP ₹129.00 is valid"
+        },
+        {
+            "rule_id": "COS-003",
+            "field": "net_quantity",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "Net quantity 3.2 g is valid"
+        },
+        {
+            "rule_id": "COS-004",
+            "field": "batch_number",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "batch_number is present"
+        },
+        {
+            "rule_id": "COS-005",
+            "field": "manufacturer",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "manufacturer is present"
+        },
+        {
+            "rule_id": "COS-006",
+            "field": "manufacturer_address",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "manufacturer_address is present"
+        },
+        {
+            "rule_id": "COS-007",
+            "field": "country_of_origin",
+            "status": "PASS",
+            "severity": "MEDIUM",
+            "message": "country_of_origin is present"
+        },
+        {
+            "rule_id": "COS-008",
+            "field": "production_date",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "Production date 2024/06 is valid"
+        },
+        {
+            "rule_id": "COS-009",
+            "field": "expiry_date",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "Expiry date 2028/06 is valid"
+        },
+        {
+            "rule_id": "COS-010",
+            "field": "expiry_date",
+            "status": "PASS",
+            "severity": "HIGH",
+            "message": "Expiry date is later than production date"
+        }
+    ]
+}

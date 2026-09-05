@@ -1,0 +1,87 @@
+{
+    "product_id": 17,
+    "scan_id": 17,
+    "result_id": 17,
+    "product_name": "LSO7 LIPSTICK",
+    "category": "Cosmetics",
+    "overall_status": "COMPLIANT",
+    "total_rules": 9,
+    "passed_rules": 9,
+    "failed_rules": 0,
+    "compliance_score": 100.0,
+    "risk_level": "LOW",
+    "rule_results": [
+        {
+            "rule_id": 5,
+            "rule_code": "COS-001",
+            "status": "PASS",
+            "extracted_value": "LSO7 LIPSTICK",
+            "expected_value": "Product/common name",
+            "remarks": "Product name is present."
+        },
+        {
+            "rule_id": 6,
+            "rule_code": "COS-002",
+            "status": "PASS",
+            "extracted_value": "129.0",
+            "expected_value": "Valid positive MRP",
+            "remarks": "MRP is present and valid."
+        },
+        {
+            "rule_id": 7,
+            "rule_code": "COS-003",
+            "status": "PASS",
+            "extracted_value": "3.2 g",
+            "expected_value": "Valid net quantity with standard unit",
+            "remarks": "Net quantity is present and valid."
+        },
+        {
+            "rule_id": 8,
+            "rule_code": "COS-004",
+            "status": "PASS",
+            "extracted_value": "LSO7202406004",
+            "expected_value": "Batch number",
+            "remarks": "Batch number is present."
+        },
+        {
+            "rule_id": 9,
+            "rule_code": "COS-005",
+            "status": "PASS",
+            "extracted_value": "Katson Intemational",
+            "expected_value": "Manufacturer name",
+            "remarks": "Manufacturer name is present."
+        },
+        {
+            "rule_id": 10,
+            "rule_code": "COS-006",
+            "status": "PASS",
+            "extracted_value": "No 5, 182-186,3rd f.",
+            "expected_value": "Manufacturer address",
+            "remarks": "Manufacturer address is present."
+        },
+        {
+            "rule_id": 11,
+            "rule_code": "COS-007",
+            "status": "PASS",
+            "extracted_value": "PRC",
+            "expected_value": "Country of origin",
+            "remarks": "Country of origin is present."
+        },
+        {
+            "rule_id": 12,
+            "rule_code": "COS-008",
+            "status": "PASS",
+            "extracted_value": "2024/06",
+            "expected_value": "Valid production/manufacturing date",
+            "remarks": "Production date is present and valid."
+        },
+        {
+            "rule_id": 13,
+            "rule_code": "COS-009",
+            "status": "PASS",
+            "extracted_value": "2028/06",
+            "expected_value": "Valid expiry date later than production date",
+            "remarks": "Expiry date is present and valid."
+        }
+    ]
+}

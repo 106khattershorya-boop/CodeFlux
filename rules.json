@@ -1,0 +1,178 @@
+{
+    "cosmetic": {
+        "required_fields": [
+            {
+                "rule_id": "COS-001",
+                "field": "product_name",
+                "description": "Product name should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "COS-002",
+                "field": "mrp",
+                "description": "Maximum Retail Price should be present and valid",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "COS-003",
+                "field": "net_quantity",
+                "description": "Net quantity should be declared",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "COS-004",
+                "field": "batch_number",
+                "description": "Batch or lot identification should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "COS-005",
+                "field": "manufacturer",
+                "description": "Manufacturer information should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "COS-006",
+                "field": "manufacturer_address",
+                "description": "Manufacturer address should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "COS-007",
+                "field": "country_of_origin",
+                "description": "Country of origin should be identified where applicable",
+                "severity": "MEDIUM"
+            },
+            {
+                "rule_id": "COS-008",
+                "field": "production_date",
+                "description": "Production date should be present and valid",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "COS-009",
+                "field": "expiry_date",
+                "description": "Expiry or use-before information should be present and valid where applicable",
+                "severity": "HIGH"
+            }
+        ]
+    },
+
+    "food": {
+        "required_fields": [
+            {
+                "rule_id": "FOOD-001",
+                "field": "product_name",
+                "description": "Product name should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "FOOD-002",
+                "field": "mrp",
+                "description": "Maximum Retail Price should be present and valid",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "FOOD-003",
+                "field": "net_quantity",
+                "description": "Net quantity should be declared",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "FOOD-004",
+                "field": "batch_number",
+                "description": "Batch or lot identification should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "FOOD-005",
+                "field": "manufacturer",
+                "description": "Manufacturer information should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "FOOD-006",
+                "field": "manufacturer_address",
+                "description": "Manufacturer address should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "FOOD-007",
+                "field": "country_of_origin",
+                "description": "Country of origin should be identified where applicable",
+                "severity": "MEDIUM"
+            },
+            {
+                "rule_id": "FOOD-008",
+                "field": "production_date",
+                "description": "Manufacturing or production date should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "FOOD-009",
+                "field": "expiry_date",
+                "description": "Expiry or best-before information should be present",
+                "severity": "HIGH"
+            }
+        ]
+    },
+
+    "pharma": {
+        "required_fields": [
+            {
+                "rule_id": "PHARMA-001",
+                "field": "product_name",
+                "description": "Medicine name should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-002",
+                "field": "mrp",
+                "description": "Maximum Retail Price should be present and valid",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-003",
+                "field": "net_quantity",
+                "description": "Pack size or quantity should be declared",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-004",
+                "field": "batch_number",
+                "description": "Batch number should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-005",
+                "field": "manufacturer",
+                "description": "Manufacturer information should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-006",
+                "field": "manufacturer_address",
+                "description": "Manufacturer address should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-007",
+                "field": "production_date",
+                "description": "Manufacturing date should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-008",
+                "field": "expiry_date",
+                "description": "Expiry date should be present",
+                "severity": "HIGH"
+            },
+            {
+                "rule_id": "PHARMA-009",
+                "field": "country_of_origin",
+                "description": "Country of origin should be identified where applicable",
+                "severity": "MEDIUM"
+            }
+        ]
+    }
+}
