@@ -1,249 +1,303 @@
+
+import React from "react";
+
 import {
   LayoutDashboard,
-  ClipboardPlus,
+  ScanLine,
   History,
-  FileText,
   BarChart3,
+  FileText,
   Settings,
-  CircleHelp,
-  LogOut,
-  X,
+  HelpCircle,
+  Bot
 } from "lucide-react";
 
-import { NavLink } from "react-router-dom";
+import {
+  NavLink
+} from "react-router-dom";
 
-function Sidebar({ isOpen, onClose }) {
 
-  const mainMenu = [
+function Sidebar() {
+
+  const links = [
     {
       name: "Dashboard",
       path: "/dashboard",
-      icon: LayoutDashboard,
+      icon: LayoutDashboard
     },
     {
       name: "New Inspection",
       path: "/inspection/new",
-      icon: ClipboardPlus,
+      icon: ScanLine
     },
     {
       name: "Inspection History",
       path: "/history",
-      icon: History,
-    },
-    {
-      name: "Reports",
-      path: "/reports",
-      icon: FileText,
+      icon: History
     },
     {
       name: "Analytics",
       path: "/analytics",
-      icon: BarChart3,
+      icon: BarChart3
     },
+    {
+      name: "Reports",
+      path: "/reports",
+      icon: FileText
+    }
   ];
 
-  const otherMenu = [
+
+  const bottomLinks = [
     {
       name: "Settings",
       path: "/settings",
-      icon: Settings,
+      icon: Settings
     },
     {
-      name: "Help",
+      name: "Help & Guide",
       path: "/help",
-      icon: CircleHelp,
-    },
+      icon: HelpCircle
+    }
   ];
 
+
+  const linkClass =
+    ({ isActive }) =>
+      `
+      group
+      flex
+      items-center
+      gap-3
+      rounded-xl
+      px-3.5
+      py-3
+      text-sm
+      font-medium
+      transition
+      ${
+        isActive
+          ? "bg-blue-100 text-blue-600 dark:bg-blue-600/10 dark:text-blue-400"
+          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-500 dark:hover:bg-slate-900 dark:hover:text-white"
+      }
+      `;
+
+
   return (
-    <>
-      {/* Mobile Overlay */}
-      {isOpen && (
-        <div
-          onClick={onClose}
-          className="fixed inset-0 z-40 bg-black/50 md:hidden"
-        ></div>
-      )}
 
-      {/* Sidebar */}
-      <aside
-        className={`
-          fixed left-0 top-0 z-50
-          flex h-screen w-72 flex-col
-          bg-slate-950 text-white
-          shadow-xl
-          transition-transform duration-300 ease-in-out
+    <aside
+      className="
+      fixed
+      bottom-0
+      left-0
+      top-[72px]
+      hidden
+      w-[245px]
+      border-r
+      border-slate-200
+      bg-white
+      transition-colors
+      duration-300
+      dark:border-slate-800
+      dark:bg-slate-950
+      lg:flex
+      lg:flex-col
+      "
+    >
 
-          md:static
-          md:translate-x-0
-          md:shadow-none
-
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-        `}
+      <div
+        className="
+        flex-1
+        overflow-y-auto
+        p-4
+        "
       >
 
-        {/* Logo */}
-        <div className="flex h-20 items-center justify-between border-b border-slate-800 px-6">
+        <div
+          className="
+          mb-3
+          px-3
+          text-[10px]
+          font-bold
+          uppercase
+          tracking-widest
+          text-slate-400
+          dark:text-slate-600
+          "
+        >
+          Main Menu
+        </div>
 
-          <div>
-            <h2 className="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">
-              LegalMatrix
-            </h2>
 
-            <p className="mt-1 text-xs text-slate-500">
-              Compliance System
-            </p>
-          </div>
+        <div className="space-y-1">
 
-          {/* Close button - mobile */}
-          <button
-            onClick={onClose}
-            className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-800 hover:text-white md:hidden"
-          >
-            <X size={21} />
-          </button>
+          {links.map(item => {
+
+            const Icon = item.icon;
+
+            return (
+
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={linkClass}
+              >
+
+                <Icon
+                  size={18}
+                  strokeWidth={1.8}
+                />
+
+                <span>
+                  {item.name}
+                </span>
+
+              </NavLink>
+
+            );
+
+          })}
 
         </div>
 
-        {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto px-4 py-6">
 
-          {/* Main Menu */}
-          <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Main Menu
-          </p>
+        <div
+          className="
+          mb-3
+          mt-8
+          px-3
+          text-[10px]
+          font-bold
+          uppercase
+          tracking-widest
+          text-slate-400
+          dark:text-slate-600
+          "
+        >
+          System
+        </div>
 
-          <div className="space-y-1">
 
-            {mainMenu.map((item) => {
+        <div className="space-y-1">
 
-              const Icon = item.icon;
+          {bottomLinks.map(item => {
 
-              return (
-                <NavLink
-                  key={item.name}
-                  to={item.path}
-                  onClick={onClose}
-                  className={({ isActive }) =>
-                    `
-                    flex items-center gap-3
-                    rounded-lg px-3 py-3
-                    text-sm font-medium
-                    transition-all duration-200
+            const Icon = item.icon;
 
-                    ${
-                      isActive
-                        ? "bg-blue-600 text-white shadow-md shadow-blue-900/30"
-                        : "text-slate-400 hover:bg-slate-900 hover:text-white"
-                    }
-                    `
-                  }
-                >
+            return (
 
-                  {({ isActive }) => (
-                    <>
-                      <Icon
-                        size={20}
-                        strokeWidth={isActive ? 2.5 : 2}
-                        className="shrink-0"
-                      />
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={linkClass}
+              >
 
-                      <span>
-                        {item.name}
-                      </span>
-                    </>
-                  )}
+                <Icon size={18} />
 
-                </NavLink>
-              );
-            })}
+                <span>
+                  {item.name}
+                </span>
 
-          </div>
+              </NavLink>
 
-          {/* Other Menu */}
-          <p className="mb-3 mt-8 px-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Other
-          </p>
+            );
 
-          <div className="space-y-1">
-
-            {otherMenu.map((item) => {
-
-              const Icon = item.icon;
-
-              return (
-                <NavLink
-                  key={item.name}
-                  to={item.path}
-                  onClick={onClose}
-                  className={({ isActive }) =>
-                    `
-                    flex items-center gap-3
-                    rounded-lg px-3 py-3
-                    text-sm font-medium
-                    transition-all duration-200
-
-                    ${
-                      isActive
-                        ? "bg-blue-600 text-white"
-                        : "text-slate-400 hover:bg-slate-900 hover:text-white"
-                    }
-                    `
-                  }
-                >
-
-                  <Icon size={20} />
-
-                  <span>
-                    {item.name}
-                  </span>
-
-                </NavLink>
-              );
-            })}
-
-          </div>
-
-        </nav>
-
-        {/* Officer Profile */}
-        <div className="border-t border-slate-800 p-4">
-
-          <div className="flex items-center gap-3 rounded-xl bg-slate-900 p-3">
-
-            {/* Avatar */}
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
-              O
-            </div>
-
-            {/* Information */}
-            <div className="min-w-0 flex-1">
-
-              <p className="truncate text-sm font-semibold text-white">
-                Officer
-              </p>
-
-              <p className="truncate text-xs text-slate-500">
-                Inspector
-              </p>
-
-            </div>
-
-            {/* Logout */}
-            <button
-              title="Logout"
-              className="rounded-lg p-2 text-slate-500 transition hover:bg-red-500/10 hover:text-red-400"
-            >
-              <LogOut size={18} />
-            </button>
-
-          </div>
+          })}
 
         </div>
 
-      </aside>
-    </>
+      </div>
+
+
+      <div
+        className="
+        m-4
+        rounded-2xl
+        border
+        border-slate-200
+        bg-slate-50
+        p-4
+        dark:border-slate-800
+        dark:bg-slate-900
+        "
+      >
+
+        <div
+          className="
+          mb-3
+          flex
+          h-9
+          w-9
+          items-center
+          justify-center
+          rounded-xl
+          bg-blue-100
+          text-blue-600
+          dark:bg-blue-600/10
+          dark:text-blue-400
+          "
+        >
+          <Bot size={19} />
+        </div>
+
+
+        <h3
+          className="
+          text-sm
+          font-bold
+          text-slate-900
+          dark:text-white
+          "
+        >
+          PackSure AI
+        </h3>
+
+        <p
+          className="
+          mt-1
+          text-[11px]
+          leading-relaxed
+          text-slate-500
+          "
+        >
+          AI-assisted compliance screening
+          for packaged commodities.
+        </p>
+
+
+        <div
+          className="
+          mt-4
+          flex
+          items-center
+          gap-2
+          text-[10px]
+          text-emerald-600
+          dark:text-emerald-400
+          "
+        >
+
+          <span
+            className="
+            h-1.5
+            w-1.5
+            rounded-full
+            bg-emerald-500
+            dark:bg-emerald-400
+            "
+          />
+
+          AI Assistant Ready
+
+        </div>
+
+      </div>
+
+    </aside>
+
   );
 }
 
+
 export default Sidebar;
+

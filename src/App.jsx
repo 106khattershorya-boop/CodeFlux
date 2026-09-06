@@ -1,142 +1,196 @@
-import { useState } from "react";
+
+import React from "react";
 
 import {
   BrowserRouter,
   Routes,
   Route,
   Navigate,
+  Outlet
 } from "react-router-dom";
 
-import { Menu } from "lucide-react";
-
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
+import Chatbot from "./components/chatbot";
 
+import Login from "./pages/login";
+import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import NewInspection from "./pages/NewInspection";
+import InspectionReport from "./pages/InspectionReport";
 import History from "./pages/History";
-import Reports from "./pages/Reports";
 import Analytics from "./pages/Analytics";
+import Reports from "./pages/Reports";
+import ReportPreview from "./pages/ReportPreview";
+import Settings from "./pages/Settings";
+import Help from "./pages/Help";
+
+
+function ProtectedLayout() {
+
+  const loggedIn =
+    localStorage.getItem("isLoggedIn") === "true";
+
+
+  if (!loggedIn) {
+    return (
+      <Navigate
+        to="/login"
+        replace
+      />
+    );
+  }
+
+
+  return (
+
+    <div
+      className="
+        min-h-screen
+        bg-slate-100
+        text-slate-900
+        transition-colors
+        duration-300
+        dark:bg-slate-950
+        dark:text-white
+      "
+    >
+
+      <Navbar />
+
+      <div className="flex">
+
+        <Sidebar />
+
+        <main
+          className="
+            min-w-0
+            flex-1
+            p-4
+            md:p-6
+            lg:ml-[245px]
+            lg:p-8
+          "
+        >
+
+          <Outlet />
+
+        </main>
+
+      </div>
+
+      <Chatbot />
+
+    </div>
+
+  );
+}
 
 
 function App() {
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
+
     <BrowserRouter>
 
-      <div className="min-h-screen bg-slate-50">
+      <Routes>
 
-        {/* Navbar */}
-        <Navbar />
+        {/* Public Routes */}
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="
-            fixed bottom-5 left-5 z-30
-            flex h-12 w-12
-            items-center justify-center
-            rounded-full
-            bg-blue-600
-            text-white
-            shadow-lg
-            transition
-            hover:bg-blue-700
-            md:hidden
-          "
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+
+
+        {/* Protected Routes */}
+
+        <Route
+          element={<ProtectedLayout />}
         >
-          <Menu size={22} />
-        </button>
 
-
-        {/* Main Layout */}
-        <div className="flex">
-
-          {/* Sidebar */}
-          <Sidebar
-            isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+          <Route
+            path="/"
+            element={
+              <Navigate
+                to="/dashboard"
+                replace
+              />
+            }
           />
 
+          <Route
+            path="/dashboard"
+            element={<Dashboard />}
+          />
 
-          {/* Page Content */}
-          <main className="min-w-0 flex-1 p-5 sm:p-6 lg:p-8">
+          <Route
+            path="/inspection/new"
+            element={<NewInspection />}
+          />
 
-            <Routes>
+          <Route
+            path="/inspection/report"
+            element={<InspectionReport />}
+          />
 
-              {/* Default route */}
-              <Route
-                path="/"
-                element={
-                  <Navigate
-                    to="/dashboard"
-                    replace
-                  />
-                }
-              />
+          <Route
+            path="/history"
+            element={<History />}
+          />
 
-              {/* Dashboard */}
-              <Route
-                path="/dashboard"
-                element={<Dashboard />}
-              />
+          <Route
+            path="/analytics"
+            element={<Analytics />}
+          />
 
-              {/* New Inspection */}
-              <Route
-                path="/inspection/new"
-                element={<NewInspection />}
-              />
+          <Route
+            path="/reports"
+            element={<Reports />}
+          />
 
-              {/* History */}
-              <Route
-                path="/history"
-                element={<History />}
-              />
+          <Route
+            path="/reports/view/:id"
+            element={<ReportPreview />}
+          />
 
-              {/* Reports */}
-              <Route
-                path="/reports"
-                element={<Reports />}
-              />
+          <Route
+            path="/settings"
+            element={<Settings />}
+          />
 
-              {/* Analytics */}
-              <Route
-                path="/analytics"
-                element={<Analytics />}
-              />
+          <Route
+            path="/help"
+            element={<Help />}
+          />
 
-              {/* Settings */}
-              <Route
-                path="/settings"
-                element={
-                  <h1 className="text-2xl font-bold">
-                    Settings
-                  </h1>
-                }
-              />
+        </Route>
 
-              {/* Help */}
-              <Route
-                path="/help"
-                element={
-                  <h1 className="text-2xl font-bold">
-                    Help
-                  </h1>
-                }
-              />
 
-            </Routes>
+        {/* Fallback */}
 
-          </main>
+        <Route
+          path="*"
+          element={
+            <Navigate
+              to="/dashboard"
+              replace
+            />
+          }
+        />
 
-        </div>
-
-      </div>
+      </Routes>
 
     </BrowserRouter>
+
   );
 }
 
+
 export default App;
+
