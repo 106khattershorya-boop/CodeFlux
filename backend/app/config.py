@@ -9,12 +9,12 @@ class Settings(BaseSettings):
     # Database
     database_url: str
 
-    # Supabase
-    supabase_url: str
-    supabase_key: str
+       # Supabase
+    supabase_url: str | None = None
+    supabase_key: str | None = None
 
-    # Google Cloud Vision
-    gcp_vision_credentials_path: str
+    # Google Cloud Vision (unused — extractor.py runs on easyocr instead)
+    gcp_vision_credentials_path: str | None = None
 
     # JWT
     jwt_secret_key: str
