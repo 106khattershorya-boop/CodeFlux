@@ -48,7 +48,7 @@ class RuleResultSchema(BaseModel):
 # ---- Product check (the full /products/check response) ----
 
 class ProductCheckResponse(BaseModel):
-    scan_id: UUID
+    scan_id: int
     fields: ExtractedFields
     results: list[RuleResultSchema]
     created_at: datetime
